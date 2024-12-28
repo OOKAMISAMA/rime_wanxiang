@@ -493,7 +493,7 @@ punctuator:
     - xform/ńg/éng/
     - xform/ňg/ěng/
     - xform/ṅg/èng/
-    - xform/^([a-zA-Z]+)$/$1①/
+    - xform/^([a-z]+)$/$1⑤/
     - xform/^(.*)ā(.*)$/$1a$2①/
     - xform/^(.*)á(.*)$/$1a$2②/
     - xform/^(.*)ǎ(.*)$/$1a$2③/
@@ -519,7 +519,7 @@ punctuator:
     - xform/^(.*)ǚ(.*)$/$1v$2③/
     - xform/^(.*)ǜ(.*)$/$1v$2④/
     - xform/^(.*)ü(.*)$/$1v$2①/
-    - xlit/①②③④/1234
+    - xlit/①②③④⑤/12345
 
     - xform/^([jqxy])u(\d)$/$1v$2/
     - xform/^([aoe])([ioun]\d)$/$1$1$2/
