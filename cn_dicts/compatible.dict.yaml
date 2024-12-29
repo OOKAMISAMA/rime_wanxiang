@@ -8,83 +8,83 @@ version: "2024-11-11"
 sort: by_weight
 ...
 干不干	gàn bú gàn	380
-干不干	gàn bú gàn	80
-美的	měi de	467
+干不干	gān bù gān	80
+美的	měi dì	467
 随行	suí háng	552
-随行	suí háng	781
+随行	suí xíng	781
 相称	xiāng chèn	404
-相称	xiāng chèn	504
+相称	xiāng chēng	504
 重活	zhòng huó	391
-重活	zhòng huó	120
+重活	chóng huó	120
 罢了	bà le	888
-罢了	bà le	647
+罢了	bà liǎo	647
 累累	lěi lěi	511
-累累	lěi lěi	577
+累累	léi léi	577
 调配	diào pèi	688
-调配	diào pèi	622
+调配	tiáo pèi	622
 数次	shù cì	768
-数次	shù cì	523
+数次	shuò cì	523
 我为	wǒ wéi	467
-我为	wǒ wéi	663
-更为	gēng wéi	915
-更为	gēng wéi	965
-长的	zhǎng de	802
+我为	wǒ wèi	663
+更为	gèng wéi	915
+更为	gèng wèi	965
+长的	cháng de	802
 长的	zhǎng de	919
 落下	là xià	764
-落下	là xià	818
+落下	luò xià	818
 穿着	chuān zhe	1000
-穿着	chuān zhe	644
+穿着	chuān zhuó	644
 一通	yí tòng	710
-一通	yí tòng	608
+一通	yì tōng	608
 总长	zǒng cháng	705
-总长	zǒng cháng	436
-不长	bù cháng	570
-不长	bù cháng	329
+总长	zǒng zhǎng	436
+不长	bǔ cháng	570
+不长	bù zhǎng	329
 掠夺	lüè duó	686
-掠夺	lüè duó	300
-略长	lüè cháng	184
+掠夺	lüě duó	300
+略长	lüè zhǎng	184
 略长	lüè cháng	447
 略长一些	lüè cháng yì xiē	42
-略长几岁	lüè cháng jǐ suì	1
+略长几岁	lüè zhǎng jǐ suì	1
 见长	jiàn zhǎng	621
-见长	jiàn zhǎng	472
-所长	suǒ zhǎng	611
+见长	jiàn cháng	472
+所长	suǒ cháng	611
 所长	suǒ zhǎng	786
-便宜	pián yì	201
-便宜	pián yì	520
-便不便宜	biàn bú pián yí	376
+便宜	biàn yí	201
+便宜	pián yi	520
+便不便宜	biàn bú biàn yí	376
 便宜行事	biàn yí xíng shì	281
-便宜之内	pián yì zhī nèi	110
+便宜之内	biàn yí zhī nèi	110
 越长	yuè cháng	271
-越长	yuè cháng	347
-越长大	yuè cháng dà	321
-越长越快	yuè cháng yuè kuài	204
+越长	yuè zhǎng	347
+越长大	yuè zhǎng dà	321
+越长越快	yuè zhǎng yuè kuài	204
 越长越好	yuè cháng yuè hǎo	230
 越长越	yuè cháng yuè	315
-越长越	yuè cháng yuè	265
-行长	xíng cháng	466
+越长越	yuè zhǎng yuè	265
+行长	háng zhǎng	466
 年长	nián zhǎng	246
-年长	nián zhǎng	207
+年长	nián cháng	207
 长牙	zhǎng yá	283
-长牙	zhǎng yá	84
+长牙	cháng yá	84
 长相	zhǎng xiàng	429
 白庙	bái miào	1
-不为	bù wéi	609
+不为	bú wèi	609
 不为	bù wéi	600
-年长	nián zhǎng	447
+年长	nián cháng	447
 年长	nián zhǎng	522
 十四	shí sì	1
 四十	sì shí	1
-五行	wǔ xíng	558
+五行	wǔ háng	558
 五行	wǔ xíng	607
 一行	yì háng	620
-一行	yì háng	530
+一行	yì xíng	530
 重天	zhòng tiān	497
 捉兔	zhuō tù	1
 白石塔	bái shí tǎ	1
 板凳宽	bǎn dèng kuān	1
 扁担长	biǎn dàn cháng	1
-剥桔子	bō jú zǐ	1
+剥桔子	bō jú zi	1
 常练习	cháng liàn xí	1
 醋湿布	cù shī bù	1
 打罢秋	dǎ bà qiū	1
@@ -267,7 +267,7 @@ sort: by_weight
 两个隻	liǎng gè zhī	1
 两个至	liǎng gè zhì	1
 两个隹	liǎng gè zhuī	1
-两个子	liǎng gè zǐ	1
+两个子	liǎng gè zi	1
 两个走	liǎng gè zǒu	1
 两个足	liǎng gè zú	1
 两个左	liǎng gè zuǒ	1
@@ -477,8 +477,8 @@ sort: by_weight
 嘴不黑	zuǐ bù hēi	1
 嘴说腿	zuǐ shuō tuǐ	1
 白白的鹅	bái bái de é	1
-不剥桔子	bù bō jú zǐ	1
-不吃桔子	bù chī jú zǐ	1
+不剥桔子	bù bō jú zi	1
+不吃桔子	bù chī jú zi	1
 不是字纸	bú shì zì zhǐ	1
 鹅要过河	é yào guò hé	1
 鹅要过河	é yào guò hé	1
@@ -541,7 +541,7 @@ sort: by_weight
 河里真暖和	hé lǐ zhēn nuǎn huo	1
 黑猫白鼻子	hēi māo bái bí zi	1
 互相不退让	hù xiāng bú tuì ràng	1
-胡子打驼子	hú zǐ dǎ tuó zǐ	1
+胡子打驼子	hú zi dǎ tuó zi	1
 花粉花凤凰	huā fěn huā fèng huáng	1
 花鸟怕灰猫	huā niǎo pà huī māo	1
 黄贺搞木刻	huáng hè gǎo mù kè	1
@@ -555,7 +555,7 @@ sort: by_weight
 来到山坡坡	lái dào shān pō pō	1
 老刘夸小牛	lǎo liú kuā xiǎo niú	1
 李虎满屋转	lǐ hǔ mǎn wū zhuǎn	1
-梨子掉下地	lí zi diào xià dì	1
+梨子掉下地	lí zǐ diào xià dì	1
 猫赶飞了雕	māo gǎn fēi le diāo	1
 面铺门朝南	miàn pù mén cháo nán	1
 哦哦爱唱歌	ó ó ài chàng gē	1
@@ -583,8 +583,8 @@ sort: by_weight
 台上七盏灯	tái shàng qī zhǎn dēng	1
 台上七盏灯	tái shàng qī zhǎn dēng	1
 天上七颗星	tiān shàng qī kē xīng	1
-驼子打胡子	tuó zǐ dǎ hú zǐ	1
-驼子挑螺蛳	tuó zǐ tiāo luó sī	1
+驼子打胡子	tuó zi dǎ hú zi	1
+驼子挑螺蛳	tuó zi tiāo luó sī	1
 外婆乐呵呵	wài pó lè hē hē	1
 王克写诗歌	wáng kè xiě shī gē	1
 雾里看物理	wù lǐ kàn wù lǐ	1
@@ -612,7 +612,7 @@ sort: by_weight
 不知是瓶碰盆	bù zhī shì píng pèng pén	1
 蚕常在叶里藏	cán cháng zài yè lǐ cáng	1
 蝉常在林里唱	chán cháng zài lín lǐ chàng	1
-吃桔子吃桔子	chī jú zǐ chī jú zǐ	1
+吃桔子吃桔子	chī jú zi chī jú zi	1
 到底是布补鼓	dào dǐ shì bù bǔ gǔ	1
 地上有只白猫	dì shàng yǒu zhǐ bái māo	1
 地下的硬石头	dì xià de yìng shí tou	1
@@ -622,7 +622,7 @@ sort: by_weight
 光动腿不动嘴	guāng dòng tuǐ bú dòng zuǐ	1
 光动嘴不动腿	guāng dòng zuǐ bú dòng tuǐ	1
 盒子里有镯子	hé zi lǐ yǒu zhuó zi	1
-盒子外有匣子	hé zi wài yǒu xiá zǐ	1
+盒子外有匣子	hé zi wài yǒu xiá zi	1
 黑猫的白鼻子	hēi māo de bái bí zi	1
 红红想要红花	hóng hóng xiǎng yào hóng huā	1
 华华想要黄花	huá huá xiǎng yào huáng huā	1
@@ -641,9 +641,9 @@ sort: by_weight
 四和十四和十	sì hé shí sì hé shí	1
 天上有个日头	tiān shàng yǒu gè rì tou	1
 腿说嘴爱卖嘴	tuǐ shuō zuǐ ài mài zuǐ	1
-匣子里有盒子	xiá zǐ lǐ yǒu hé zi	1
-匣子外有箱子	xiá zǐ wài yǒu xiāng zi	1
-箱子里有匣子	xiāng zi lǐ yǒu xiá zǐ	1
+匣子里有盒子	xiá zi lǐ yǒu hé zi	1
+匣子外有箱子	xiá zi wài yǒu xiāng zi	1
+箱子里有匣子	xiāng zi lǐ yǒu xiá zi	1
 箱子外有房子	xiāng zi wài yǒu fáng zi	1
 丫丫会吹喇叭	yā yā huì chuī lǎ bā	1
 一班有个黄贺	yì bān yǒu gè huáng hè	1
@@ -743,7 +743,7 @@ sort: by_weight
 山前有个严圆眼	shān qián yǒu gè yán yuán yǎn	1
 上街打醋又买布	shàng jiē dǎ cù yòu mǎi bù	1
 上前去追鹰和兔	shàng qián qù zhuī yīng hé tù	1
-拾了四十小石子	shí le sì shí xiǎo shí zǐ	1
+拾了四十小石子	shí le sì shí xiǎo shí zi	1
 石小四和史肖石	shí xiǎo sì hé shǐ xiào shí	1
 石小四和史肖石	shí xiǎo sì hé shǐ xiào shí	1
 树上结了白果果	shù shàng jié le bái guǒ guǒ	1
@@ -878,7 +878,7 @@ sort: by_weight
 疼得小池拍腿挠牙齿	téng dé xiǎo chí pāi tuǐ náo yá chǐ	1
 天上是日头不是石头	tiān shàng shì rì tou bú shì shí tou	1
 童家知道董家冬瓜大	tóng jiā zhī dào dǒng jiā dōng guā dà	1
-驼子拖住胡子的驴子	tuó zǐ tuō zhù hú zǐ de lǘ zǐ	1
+驼子拖住胡子的驴子	tuó zi tuō zhù hú zi de lǘ zǐ	1
 王克帮助黄贺搞木刻	wáng kè bāng zhù huáng hè gǎo mù kè	1
 乌鸦说它身比黑猪黑	wū yā shuō tā shēn bǐ hēi zhū hēi	1
 小花猫小花猫爱画画	xiǎo huā māo xiǎo huā māo ài huà huà	1
@@ -903,9 +903,9 @@ sort: by_weight
 红红送给华华一朵黄花	hóng hóng sòng gěi huá huá yì duǒ huáng huā	1
 猴过桥桥东走来一条狗	hóu guò qiáo qiáo dōng zǒu lái yì tiáo gǒu	1
 胡梳子买把斧子做梳子	hú shū zi mǎi bǎ fǔ zi zuò shū zi	1
-胡子骑驴子胡子骑驴子	hú zǐ qí lǘ zǐ hú zǐ qí lǘ zǐ	1
-胡子去打挑螺蛳的驼子	hú zǐ qù dǎ tiāo luó sī de tuó zǐ	1
-胡子撞翻了驼子的螺蛳	hú zǐ zhuàng fān le tuó zǐ de luó sī	1
+胡子骑驴子胡子骑驴子	hú zi qí lǘ zǐ hú zi qí lǘ zǐ	1
+胡子去打挑螺蛳的驼子	hú zi qù dǎ tiāo luó sī de tuó zi	1
+胡子撞翻了驼子的螺蛳	hú zi zhuàng fān le tuó zi de luó sī	1
 华华送给红红一朵红花	huá huá sòng gěi hóng hóng yì duǒ hóng huā	1
 可怜梁上的两对倒吊鸟	kě lián liáng shàng de liǎng duì dào diào niǎo	1
 可怜泥里的两对鸟倒吊	kě lián ní lǐ de liǎng duì niǎo dào diào	1
@@ -922,12 +922,12 @@ sort: by_weight
 青龙洞青龙洞中龙做梦	qīng lóng dòng qīng lóng dòng zhōng lóng zuò mèng	1
 上果市四个孩子上果市	shàng guǒ shì sì gè hái zi shàng guǒ shì	1
 是灯还是星天上满天星	shì dēng hái shì xīng tiān shàng mǎn tiān xīng	1
-梳胡子苏州有个苏胡子	shū hú zǐ sū zhōu yǒu gè sū hú zǐ	1
+梳胡子苏州有个苏胡子	shū hú zi sū zhōu yǒu gè sū hú zi	1
 树上的雕啄猫身上的毛	shù shàng de diāo zhuó māo shēn shàng de máo	1
-苏胡子买把梳子梳胡子	sū hú zǐ mǎi bǎ shū zi shū hú zǐ	1
+苏胡子买把梳子梳胡子	sū hú zi mǎi bǎ shū zi shū hú zi	1
 提拉塔嘛的喇嘛敦塔嘛	tí lā tǎ ma de lǎ ma dūn tǎ ma	1
 天上七颗星天上七颗星	tiān shàng qī kē xīng tiān shàng qī kē xīng	1
-驼子来打骑驴子的胡子	tuó zǐ lái dǎ qí lǘ zǐ de hú zǐ	1
+驼子来打骑驴子的胡子	tuó zi lái dǎ qí lǘ zǐ de hú zi	1
 小牛硬要把油还给老刘	xiǎo niú yìng yào bǎ yóu huán gěi lǎo liú	1
 学捏梨盘里放着一个梨	xué niē lí pán lǐ fàng zhe yí gè lí	1
 白发老公公掉了一顶白帽	bái fà lǎo gōng gōng diào le yì dǐng bái mào	1
