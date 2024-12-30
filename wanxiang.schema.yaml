@@ -999,23 +999,20 @@ user_dict_set:
   enable_sentence: false
   spelling_hints: 100
   comment_format: {comment}
-  enable_user_dict: true # 是否开启自动调频
-  user_dict: zaoci.dict
-  db_class: tabledb
+  enable_user_dict: true
+  user_dict: user
 
   # 自定义词典加词(ac引导)
 add_user_dict:
   tag: add_user_dict
   dictionary: wanxiang
   initial_quality: -1
-  user_dict: zaoci.dict
-  # ↓ 用户词典格式，tabledb（文本） 或 userdb （二进制）。
-  db_class: tabledb
+  user_dict: user
   enable_charset_filter: false # 是否开启字符集过滤
   enable_completion: false # 提前显示尚未输入完整码的字〔仅 table_translator 有效〕
   enable_encoder: true # 是否开启自动造词〔仅 table_translator 有效〕
   enable_sentence: true #  是否开启自动造句
-  enable_user_dict: true # 是否开启用户词典
+  enable_user_dict: true 
   encode_commit_history: false # 是否对已上屛词自动成词〔仅 table_translator 有效〕
   preedit_format: {comment}   
   comment_format:
