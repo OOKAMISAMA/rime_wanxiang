@@ -20,7 +20,6 @@ jobs:
           if [ -d "cn_dicts" ]; then
             mkdir -p dist
             zip -r dist/wanxiang.dict-nightly.zip cn_dicts
-            echo "ZIP archive created: dist/wanxiang.dict-nightly.zip"
           else
             echo "Error: cn_dicts folder does not exist."
             exit 1
@@ -31,7 +30,7 @@ jobs:
         id: create_tag
         uses: actions/github-script@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.AMZ_TOKEN }}
           script: |
             const tag = "dict-nightly";
             const refs = await github.rest.git.listMatchingRefs({
@@ -73,7 +72,7 @@ jobs:
         id: create_release
         uses: actions/github-script@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.AMZ_TOKEN }}
           script: |
             const tag = "dict-nightly";
             const releases = await github.rest.repos.listReleases({
@@ -112,7 +111,7 @@ jobs:
       - name: Delete old assets
         uses: actions/github-script@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.AMZ_TOKEN }}
           script: |
             const release = await github.rest.repos.getReleaseByTag({
               owner: context.repo.owner,
