@@ -52,7 +52,7 @@ jobs:
               console.log("Tag does not exist or already deleted.");
             }
 
-      # 确保只打包 cn_dicts 文件夹为 ZIP 文件
+      # 打包 cn_dicts 文件夹为 ZIP 文件
       - name: Create ZIP archive
         run: |
           if [ -d "cn_dicts" ]; then
@@ -76,8 +76,8 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               tag_name: tag,
-              name: "每夜自动替换更新词库",
-              body: "Nightly build release with dicts. Please download the 'wanxiang.dict-nightly.zip' asset below.",
+              name: "每夜自动替换更新词库 Pre-release",
+              body: "每夜构建的词库文件已更新。",
               draft: false,
               prerelease: true
             });
