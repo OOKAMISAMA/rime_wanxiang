@@ -31,6 +31,7 @@ jobs:
         id: create_tag
         uses: actions/github-script@v6
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const tag = "dict-nightly";
             const refs = await github.rest.git.listMatchingRefs({
@@ -72,6 +73,7 @@ jobs:
         id: create_release
         uses: actions/github-script@v6
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const tag = "dict-nightly";
             const releases = await github.rest.repos.listReleases({
@@ -108,6 +110,7 @@ jobs:
       - name: Delete old assets
         uses: actions/github-script@v6
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const release = await github.rest.repos.getReleaseByTag({
               owner: context.repo.owner,
@@ -129,6 +132,7 @@ jobs:
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: dist/wanxiang.dict-nightly.zip
           asset_name: wanxiang.dict-nightly.zip
