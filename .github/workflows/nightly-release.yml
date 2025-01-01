@@ -87,5 +87,5 @@ jobs:
           body: |
             - `cn_dicts.zip`：最新的中文词库文件。
           files: dist/cn_dicts.zip
-          make_latest: true
+ #         make_latest: true
 
