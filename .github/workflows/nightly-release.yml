@@ -84,7 +84,7 @@ jobs:
             let release = releases.data.find(r => r.tag_name === tag);
             if (release) {
               console.log(`Updating existing Release for tag: ${tag}`);
-              await github.rest.repos.updateRelease({
+              release = await github.rest.repos.updateRelease({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 release_id: release.id,
@@ -104,7 +104,9 @@ jobs:
                 prerelease: true
               });
             }
-            core.setOutput("upload_url", release.data.upload_url);
+
+            console.log("Release data:", release.data);
+            core.setOutput("upload_url", release.data.upload_url || release.upload_url);
 
       # 删除旧资产（如果存在）
       - name: Delete old assets
