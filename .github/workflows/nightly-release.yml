@@ -14,12 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 打包 cn_dicts 文件夹为 ZIP 文件，添加 "每夜" 标识
+      # 确保只打包 cn_dicts 文件夹为 ZIP 文件
       - name: Create ZIP archive
         run: |
           if [ -d "cn_dicts" ]; then
             mkdir -p dist
-            zip -r dist/wanxiang.dict-nightly.zip cn_dicts
+            zip -r dist/wanxiang.dict-nightly.zip cn_dicts/*
             echo "ZIP archive created: dist/wanxiang.dict-nightly.zip"
           else
             echo "Error: cn_dicts folder does not exist."
