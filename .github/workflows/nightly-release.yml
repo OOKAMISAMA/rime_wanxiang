@@ -14,6 +14,44 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 删除现有 Release 和标签（如果存在）
+      - name: Delete existing Release and Tag
+        uses: actions/github-script@v6
+        with:
+          github_token: ${{ secrets.AMZ_TOKEN }}
+          script: |
+            const tag = "dict-nightly";
+
+            // 检查现有的 Release
+            const releases = await github.rest.repos.listReleases({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+
+            const existingRelease = releases.data.find(r => r.tag_name === tag);
+            if (existingRelease) {
+              console.log(`Deleting existing Release with ID: ${existingRelease.id}`);
+              await github.rest.repos.deleteRelease({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                release_id: existingRelease.id
+              });
+            } else {
+              console.log("No existing Release found.");
+            }
+
+            // 删除现有的 Tag
+            try {
+              console.log(`Deleting tag: ${tag}`);
+              await github.rest.git.deleteRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `tags/${tag}`
+              });
+            } catch (error) {
+              console.log("Tag does not exist or already deleted.");
+            }
+
       # 确保只打包 cn_dicts 文件夹为 ZIP 文件
       - name: Create ZIP archive
         run: |
@@ -26,7 +64,7 @@ jobs:
             exit 1
           fi
 
-      # 创建新的 Release，不包含默认的 Source code 资产
+      # 创建新的 Release
       - name: Create new Release
         id: create_release
         uses: actions/github-script@v6
