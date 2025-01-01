@@ -88,9 +88,6 @@ jobs:
           tag_name: dict-nightly
           name: "每夜构建-词库更新"
           body: |
-            ## 每夜构建
-
-            包含以下资源：
             - `cn_dicts.zip`：最新的中文词库文件。
           files: dist/cn_dicts.zip
           draft: false
