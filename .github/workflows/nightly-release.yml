@@ -1,7 +1,7 @@
 name: Nightly Release
 
 on:
-  workflow_dispatch: # 手动触发选项
+  workflow_dispatch:
   schedule:
     - cron: "0 22 * * *" # 每天晚上 10 点触发
 
@@ -14,24 +14,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 打包 cn_dicts 文件夹为 ZIP 文件，添加 "每夜" 标识
+      # 打包 cn_dicts 文件夹为 ZIP 文件
       - name: Create ZIP archive
         run: |
           if [ -d "cn_dicts" ]; then
             mkdir -p dist
             zip -r dist/wanxiang.dict-nightly.zip cn_dicts
-            echo "ZIP archive created: dist/wanxiang.dict-nightly.zip"
           else
             echo "Error: cn_dicts folder does not exist."
             exit 1
           fi
 
-      # 创建或更新 `dict-nightly` 标签
+      # 创建或更新标签
       - name: Create or update tag
         id: create_tag
         uses: actions/github-script@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           script: |
             const tag = "dict-nightly";
             const refs = await github.rest.git.listMatchingRefs({
@@ -73,7 +72,7 @@ jobs:
         id: create_release
         uses: actions/github-script@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           script: |
             const tag = "dict-nightly";
             const releases = await github.rest.repos.listReleases({
@@ -104,37 +103,13 @@ jobs:
                 prerelease: true
               });
             }
-
-            console.log("Release data:", release.data);
-            core.setOutput("upload_url", release.data.upload_url || release.upload_url);
-
-      # 删除旧资产（如果存在）
-      - name: Delete old assets
-        uses: actions/github-script@v6
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const release = await github.rest.repos.getReleaseByTag({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag: "dict-nightly"
-            });
-
-            const assets = release.data.assets;
-            for (const asset of assets) {
-              await github.rest.repos.deleteReleaseAsset({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                asset_id: asset.id
-              });
-              console.log(`Deleted asset: ${asset.name}`);
-            }
+            core.setOutput("upload_url", release.data.upload_url);
 
       # 上传新资产
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: dist/wanxiang.dict-nightly.zip
           asset_name: wanxiang.dict-nightly.zip
