@@ -14,9 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 检查是否有代码变更
+      # 检查是否有代码变更（仅定时触发时执行）
       - name: Check for changes
         id: check_changes
+        if: github.event_name != 'workflow_dispatch'
         run: |
           git fetch origin main
           if [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" ]; then
@@ -25,16 +26,14 @@ jobs:
           else
             echo "Changes detected."
             echo "has_changes=true" >> $GITHUB_ENV
-          fi
 
-      # 如果没有变更则退出
+      # 如果没有变更且不是手动触发，则退出
       - name: Skip release if no changes
-        if: env.has_changes == 'false'
+        if: github.event_name != 'workflow_dispatch' && env.has_changes == 'false'
         run: echo "No changes detected. Skipping release."
 
-      # 打包词库文件（仅当有变更时执行）
+      # 打包词库文件（始终执行）
       - name: Pack cn_dicts
-        if: env.has_changes == 'true'
         run: |
           mkdir -p dist
           echo "Packing cn_dicts..."
@@ -43,7 +42,6 @@ jobs:
 
       # 删除旧的 Release 和 Tag（如果存在）
       - name: Delete existing Nightly Release
-        if: env.has_changes == 'true'
         uses: actions/github-script@v6
         with:
           github_token: ${{ secrets.AMZ_TOKEN }}
@@ -82,7 +80,6 @@ jobs:
 
       # 创建新的 Release
       - name: Create new Release
-        if: env.has_changes == 'true'
         uses: "softprops/action-gh-release@v2"
         with:
           tag_name: dict-nightly
