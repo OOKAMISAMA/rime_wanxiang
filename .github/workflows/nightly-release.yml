@@ -1,8 +1,9 @@
 name: Nightly Release
 
 on:
+  workflow_dispatch: # 添加手动触发选项
   schedule:
-    - cron: "0 0 */2 * *" # 每两天的 00:00 触发一次
+    - cron: "0 22 * * *" # 每天晚上 10 点触发
 
 jobs:
   nightly-build:
