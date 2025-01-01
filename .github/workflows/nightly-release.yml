@@ -1,0 +1,136 @@
+name: Nightly Release
+
+on:
+  schedule:
+    - cron: "0 0 */2 * *" # 每两天的 00:00 触发一次
+
+jobs:
+  nightly-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 打包 cn_dicts 文件夹为 ZIP 文件，添加 "每夜" 标识
+      - name: Create ZIP archive
+        run: |
+          if [ -d "cn_dicts" ]; then
+            mkdir -p dist
+            zip -r dist/wanxiang.dict-nightly.zip cn_dicts
+            echo "ZIP archive created: dist/wanxiang.dict-nightly.zip"
+          else
+            echo "Error: cn_dicts folder does not exist."
+            exit 1
+          fi
+
+      # 创建或更新 `dict-nightly` 标签
+      - name: Create or update tag
+        id: create_tag
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const tag = "dict-nightly";
+            const { data: refs } = await github.rest.git.listMatchingRefs({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `tags/${tag}`
+            });
+            const latestCommit = context.sha;
+
+            if (refs.length > 0) {
+              console.log(`Updating existing tag: ${tag}`);
+              await github.rest.git.updateRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `tags/${tag}`,
+                sha: latestCommit,
+                force: true
+              });
+            } else {
+              console.log(`Creating new tag: ${tag}`);
+              await github.rest.git.createTag({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag: tag,
+                message: "Nightly release tag",
+                object: latestCommit,
+                type: "commit"
+              });
+              await github.rest.git.createRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `refs/tags/${tag}`,
+                sha: latestCommit
+              });
+            }
+            return tag;
+
+      # 创建或更新 Release
+      - name: Create or update Release
+        id: create_release
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const tag = "dict-nightly";
+            const releases = await github.rest.repos.listReleases({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+
+            let release = releases.data.find(r => r.tag_name === tag);
+            if (release) {
+              console.log(`Updating existing Release for tag: ${tag}`);
+              await github.rest.repos.updateRelease({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                release_id: release.id,
+                body: "Nightly build release with updated assets.",
+                draft: false,
+                prerelease: true
+              });
+            } else {
+              console.log(`Creating new Release for tag: ${tag}`);
+              release = await github.rest.repos.createRelease({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag_name: tag,
+                name: "Nightly Release",
+                body: "Nightly build release with updated assets.",
+                draft: false,
+                prerelease: true
+              });
+            }
+            return release.upload_url;
+
+      # 删除旧资产（如果存在）
+      - name: Delete old assets
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const release = await github.rest.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: "dict-nightly"
+            });
+
+            const assets = release.data.assets;
+            for (const asset of assets) {
+              await github.rest.repos.deleteReleaseAsset({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                asset_id: asset.id
+              });
+              console.log(`Deleted asset: ${asset.name}`);
+            }
+
+      # 上传新资产
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/wanxiang.dict-nightly.zip
+          asset_name: wanxiang.dict-nightly.zip
+          asset_content_type: application/zip
+
