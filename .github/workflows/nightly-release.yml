@@ -77,7 +77,7 @@ jobs:
               repo: context.repo.repo,
               tag_name: tag,
               name: "每夜自动替换更新词库",
-              body: "Nightly build release with dicts",
+              body: "Nightly build release with dicts. Please download the 'wanxiang.dict-nightly.zip' asset below.",
               draft: false,
               prerelease: true
             });
