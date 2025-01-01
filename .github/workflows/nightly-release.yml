@@ -39,6 +39,7 @@ jobs:
               repo: context.repo.repo,
               tag_name: tag,
               name: "每夜自动替换更新词库",
+              body: "Nightly build release with dicts",
               draft: false,
               prerelease: true,
               generate_release_notes: false # 禁用默认 Source code 打包
