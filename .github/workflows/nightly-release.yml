@@ -3,11 +3,11 @@ name: Nightly Build dicts
 on:
   workflow_dispatch: # 手动触发
   schedule:
-    - cron: "30 2 * * *" # 北京时间上午 10:15 (UTC 时间 2:15)
+    - cron: "40 2 * * *" # 每天晚上 10 点触发
 
 jobs:
   nightly-release:
-    runs-on: ubuntu-22.04 # 明确指定 Ubuntu 版本，避免未来的警告
+    runs-on: ubuntu-22.04
 
     steps:
       # 检出代码
@@ -29,10 +29,10 @@ jobs:
 
       # 删除旧的 Release 和 Tag（如果存在）
       - name: Delete existing Nightly Release
-        continue-on-error: true
+        continue-on-error: true # 忽略删除失败的错误
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.AMZ_TOKEN }} # 改为 github-token，解决 Unexpected input(s) 警告
+          github-token: ${{ secrets.AMZ_TOKEN }}
           script: |
             const tag = "dict-nightly";
 
@@ -68,15 +68,13 @@ jobs:
 
       # 创建新的 Release
       - name: Create new Release
-        uses: softprops/action-gh-release@v2
+        uses: "softprops/action-gh-release@v2"
         with:
-          token: ${{ secrets.AMZ_TOKEN }} # 改为 token，解决 Unexpected input(s) 警告
+          github-token: ${{ secrets.AMZ_TOKEN }}
           tag_name: dict-nightly
           name: "每夜构建-词库更新"
           body: |
             - `cn_dicts.zip`：最新的中文词库文件。
           files: dist/cn_dicts.zip
-          draft: false
-          prerelease: false
-          make_latest: true
+
 
