@@ -3,7 +3,7 @@ name: Nightly Build dicts
 on:
   workflow_dispatch: # 手动触发
   schedule:
-    - cron: "12 3 * * *" # 每天晚上 10 点触发
+    - cron: "16 3 * * *" # 每天晚上 10 点触发
 
 jobs:
   nightly-release:
@@ -33,6 +33,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.AMZ_TOKEN }}
+          token: ${{ secrets.AMZ_TOKEN }}
           script: |
             const tag = "dict-nightly";
 
