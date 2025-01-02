@@ -3,7 +3,7 @@ name: Nightly Build dicts
 on:
   workflow_dispatch: # 手动触发
   schedule:
-    - cron: "45 2 * * *" # 每天晚上 10 点（UTC 时间 2:40）
+    - cron: "40 2 * * *" # 每天晚上 10 点（UTC 时间 2:40）
 
 jobs:
   nightly-release:
@@ -78,5 +78,5 @@ jobs:
           files: dist/cn_dicts.zip
           draft: false
           prerelease: false
-          make_latest: true 
+          make_latest: true # 强制标记为最新版本
 
