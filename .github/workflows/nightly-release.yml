@@ -3,7 +3,7 @@ name: Nightly Build dicts
 on:
   workflow_dispatch: # 手动触发
   schedule:
-    - cron: "26 0 * * *" # 每天晚上 10 点触发
+    - cron: "46 0 * * *" # 每天晚上 10 点触发
 
 jobs:
   nightly-release:
