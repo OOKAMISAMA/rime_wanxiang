@@ -3,7 +3,7 @@ name: Nightly Build dicts
 on:
   workflow_dispatch: # 手动触发
   schedule:
-    - cron: "20 2 * * *" # 北京时间上午 10:15 (UTC+8 对应 UTC 时间 2:15)
+    - cron: "30 2 * * *" # 北京时间上午 10:15 (UTC 时间 2:15)
 
 jobs:
   nightly-release:
@@ -32,7 +32,7 @@ jobs:
         continue-on-error: true
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.AMZ_TOKEN }}
+          github-token: ${{ secrets.AMZ_TOKEN }} # 改为 github-token，解决 Unexpected input(s) 警告
           script: |
             const tag = "dict-nightly";
 
@@ -68,9 +68,9 @@ jobs:
 
       # 创建新的 Release
       - name: Create new Release
-        uses: "softprops/action-gh-release@v2"
+        uses: softprops/action-gh-release@v2
         with:
-          token: ${{ secrets.AMZ_TOKEN }} # 替换 github_token 为 token
+          token: ${{ secrets.AMZ_TOKEN }} # 改为 token，解决 Unexpected input(s) 警告
           tag_name: dict-nightly
           name: "每夜构建-词库更新"
           body: |
@@ -78,5 +78,5 @@ jobs:
           files: dist/cn_dicts.zip
           draft: false
           prerelease: false
-          make_latest: true 
+          make_latest: true
 
