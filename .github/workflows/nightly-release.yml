@@ -32,7 +32,7 @@ jobs:
         continue-on-error: true # 忽略删除失败的错误
         uses: actions/github-script@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const tag = "dict-nightly";
 
