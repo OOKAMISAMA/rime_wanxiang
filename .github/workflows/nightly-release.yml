@@ -4,6 +4,7 @@ on:
   workflow_dispatch: # 手动触发
   schedule:
     - cron: "0 14 * * *" # 每天晚上 10 点
+#    - cron: "0 14 * * 1" #一周一次
 
 jobs:
   nightly-release:
@@ -74,11 +75,7 @@ jobs:
           tag_name: dict-nightly
           name: "每夜构建-词库更新"
           body: |
-            ## 每夜构建
-
-            包含以下资源：
             - `cn_dicts.zip`：最新的中文词库文件。
           files: dist/cn_dicts.zip
-          draft: false
           make_latest: true # 强制标记为最新版本
 
