@@ -33,7 +33,6 @@ jobs:
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.AMZ_TOKEN }}
-          token: ${{ secrets.AMZ_TOKEN }}
           script: |
             const tag = "dict-nightly";
 
@@ -71,6 +70,7 @@ jobs:
       - name: Create new Release
         uses: "softprops/action-gh-release@v2"
         with:
+          github-token: ${{ secrets.AMZ_TOKEN }}
           tag_name: dict-nightly
           name: "每夜构建-词库更新"
           body: |
