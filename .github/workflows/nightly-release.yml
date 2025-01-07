@@ -19,19 +19,19 @@ jobs:
         id: check_changes
         run: |
           if git diff --quiet HEAD HEAD~1 -- cn_dicts; then
-            echo "::set-output name=skip::true"
+            echo "SKIP=true" >> $GITHUB_ENV
           else
-            echo "::set-output name=skip::false"
+            echo "SKIP=false" >> $GITHUB_ENV
           fi
 
       # 条件跳过任务
       - name: Skip if no changes
-        if: steps.check_changes.outputs.skip == 'true'
+        if: env.SKIP == 'true'
         run: echo "No changes detected in 'cn_dicts'. Skipping release process."
 
       # 打包词库文件
       - name: Pack cn_dicts
-        if: steps.check_changes.outputs.skip != 'true'
+        if: env.SKIP != 'true'
         run: |
           mkdir -p dist
           echo "Packing cn_dicts..."
@@ -45,7 +45,7 @@ jobs:
 
       # 删除旧的 Release 和 Tag（如果存在）
       - name: Delete existing Nightly Release and Tag
-        if: steps.check_changes.outputs.skip != 'true'
+        if: env.SKIP != 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -85,7 +85,7 @@ jobs:
 
       # 创建新的 Release
       - name: Create new Release
-        if: steps.check_changes.outputs.skip != 'true'
+        if: env.SKIP != 'true'
         uses: "softprops/action-gh-release@v2"
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
