@@ -40,7 +40,7 @@ switches:
     states: [ 半, 全 ]
   - name: emoji
     states: [ 💀, 😄 ]
-    reset: 1
+    reset: 0
   - name: chinese_english
     states: [ 译, 翻 ]
   - name: tone_display
@@ -446,7 +446,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
    # - abbrev/^([a-z]).+$/$1/   #简拼
@@ -454,7 +453,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - derive/^([jqxy])u$/$1v/
@@ -493,7 +491,6 @@ punctuator:
     - xform/ń/én/ 
     - xform/ň/ěn/ 
     - xform/ǹ/ěn/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg/éng/
     - xform/ňg/ěng/
@@ -714,7 +711,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - derive/^([jqxy])u$/$1v/
@@ -751,7 +747,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - derive/^([jqxy])u$/$1v/
@@ -789,7 +784,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - derive/^([jqxy])u$/$1v/
@@ -829,7 +823,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - erase/^xx$/
