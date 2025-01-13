@@ -216,7 +216,6 @@ patch:  #注意本示例采用了全局替换的写法
     algebra:
       - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
       - xform/ń|ň|ǹ/en/ 
-      - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
       - xform/\bng\b/eng/
       - xform/ńg|ňg|ǹg/eng/
       - derive/^([jqxy])u$/$1v/
