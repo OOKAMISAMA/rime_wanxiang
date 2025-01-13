@@ -16,7 +16,6 @@
  algebra:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/en/
     - xform/ńg|ňg|ǹg/en/
 ```
@@ -25,7 +24,6 @@
     - xform/ń/én/ 
     - xform/ň/ěn/ 
     - xform/ǹ/ěn/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/en/
     - xform/ńg/én/
     - xform/ňg/ěn/
@@ -67,7 +65,6 @@
 ##### 数字跟随元音声调：
 ```
     - xform/ń|ň|ǹ/en/   #先处理一些特殊音节
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/en/
     - xform/ńg|ňg|ǹg/en/
 
@@ -146,7 +143,7 @@
 ```
 #############万象拼音无辅助码版本###########################
 set_shuru_schema:         #配置此项就是选择什么输入法,同时拆分反查和中英文混输也将匹配该输入方案
-  __include: 自然码  #可选解码规则有   全拼, 自然码, 自然龙, 小鹤,  紫光, 搜狗, 微软, ABC  选择一个填入
+  __include: 自然码  #可选解码规则有   全拼, 自然码, 自然龙, 小鹤, 搜狗, 微软  选择一个填入
 set_gongjian_mohu:    #可选的值有：26键, 18键, 14键, 9键  注意PC选26键
   __include: 18键
 pro_comment_format:           # 超级注释模块
