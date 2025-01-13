@@ -40,7 +40,7 @@ switches:
     states: [ 半, 全 ]
   - name: emoji
     states: [ 💀, 😄 ]
-    reset: 1
+    reset: 0
   - name: chinese_english
     states: [ 译, 翻 ]
   - name: tone_display
@@ -308,7 +308,7 @@ recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
     punct: "^/([0-9]|10|[A-Za-z]+)$"    # 响应 symbols.yaml 的 symbols
-    radical_lookup: "^az[a-z]+$"        # 响应部件拆字的反查，与 radical_lookup/prefix 匹配
+    radical_lookup: "^az[A-Za-z]*$"        # 响应部件拆字的反查，与 radical_lookup/prefix 匹配
     reverse_stroke: "^ab[A-Za-z]*$"     #响应笔画反查，与reverse_stroke/prefix 匹配
     add_user_dict: "^ac[A-Za-z]*$"      #自造词
     unicode: "^U[a-f0-9]+"              # 脚本将自动获取第 2 个字符 U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
@@ -446,7 +446,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
    # - abbrev/^([a-z]).+$/$1/   #简拼
@@ -454,7 +453,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - derive/^([jqxy])u$/$1v/
@@ -493,7 +491,6 @@ punctuator:
     - xform/ń/én/ 
     - xform/ň/ěn/ 
     - xform/ǹ/ěn/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg/éng/
     - xform/ňg/ěng/
@@ -714,7 +711,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - derive/^([jqxy])u$/$1v/
@@ -751,7 +747,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - derive/^([jqxy])u$/$1v/
@@ -789,7 +784,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - derive/^([jqxy])u$/$1v/
@@ -829,7 +823,6 @@ punctuator:
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/ń|ň|ǹ/en/ 
-    - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
     - xform/\bng\b/eng/
     - xform/ńg|ňg|ǹg/eng/
     - erase/^xx$/

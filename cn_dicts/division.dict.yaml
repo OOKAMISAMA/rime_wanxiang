@@ -344,7 +344,6 @@ sort: by_weight
 丹棱	dān léng	411
 淡水	dàn shuǐ	723
 丹徒	dān tú	475
-单县	dān xiàn	496
 丹阳	dān yáng	599
 丹寨	dān zhài	427
 儋州	dān zhōu	552
@@ -1983,6 +1982,7 @@ sort: by_weight
 汕尾	shàn wěi	584
 山西	shān xī	825
 陕西	shǎn xī	817
+单县	shàn xiàn	496
 山阳	shān yáng	600
 山阴	shān yīn	569
 陕州	shǎn zhōu	496
@@ -2677,7 +2677,7 @@ sort: by_weight
 盐埕	yán chéng	1
 盐池	yán chí	488
 延川	yán chuān	447
-盐都	yán dōu	500
+盐都	yán dū	500
 雁峰	yàn fēng	405
 沿河	yán hé	586
 盐湖	yán hú	610
@@ -5855,7 +5855,7 @@ sort: by_weight
 盐城市	yán chéng shì	538
 盐池县	yán chí xiàn	406
 延川县	yán chuān xiàn	394
-盐都区	yán dōu qū	397
+盐都区	yán dū qū	397
 雁峰区	yàn fēng qū	314
 盐湖区	yán hú qū	426
 延吉市	yán jí shì	447
