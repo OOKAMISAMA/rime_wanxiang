@@ -84,7 +84,7 @@ patch:  #注意本示例采用了全局替换的写法
     filters:
       - lua_filter@*chars_filter                      #字符集过滤
       - lua_filter@*cold_word_drop.filter
-      - lua_filter@*long_word_filter                  #长词优先      
+      - lua_filter@*long_word_filter                  #长词优先
       - lua_filter@*autocap_filter                    # 英文自动大写
       - lua_filter@*pin_cand_filter                   # 置顶候选项（顺序要求：置顶候选项 > Emoji > 简繁切换）
       - lua_filter@*reduce_english_filter             # 降低部分英语单词在候选项的位置
@@ -101,9 +101,9 @@ patch:  #注意本示例采用了全局替换的写法
 
 
 # Lua 配置 超级注释模块
-  pro_comment_format:           
+  pro_comment_format:
     candidate_length: 1         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
-    corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
+    corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})"
     tone_display: "preedit"       #显示到输入码还是注释里  选项为preedit, comment
 
 # Lua 配置: 日期、时间、星期、ISO 8601、时间戳的触发关键字
@@ -144,12 +144,12 @@ patch:  #注意本示例采用了全局替换的写法
 
   reverse_stroke:
     tag: reverse_stroke
-    dictionary: stroke 
+    dictionary: stroke
     db_class: stabledb
     enable_completion: true
     prefix: "ab"
     suffix: "'"
-    tips: 〔笔画 hspnz〕 
+    tips: 〔笔画 hspnz〕
     preedit_format:
       - xlit/hspnz/一丨丿丶乙/
 
@@ -198,7 +198,7 @@ patch:  #注意本示例采用了全局替换的写法
       - { when: has_menu, accept: "Tab", send: "Control+Right" }
       - { when: composing, accept: "Tab", send: "Control+Right" }
 #通过stick.lua显示到注释里，用来上屏带/的简码词汇。最好是用句号，这样可以与手机上可以做同样的定义，保持同样的习惯
-#    - { match: "[a-z]{1,3}", accept: ".",  send_sequence: "/1" } 
+#    - { match: "[a-z]{1,3}", accept: ".",  send_sequence: "/1" }
 
 
 
@@ -215,7 +215,7 @@ patch:  #注意本示例采用了全局替换的写法
     delimiter: " '"  # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
     algebra:
       - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
-      - xform/ń|ň|ǹ/en/ 
+      - xform/ń|ň|ǹ/en/
       - xform/\bn\b/en/   #解决𧗈字拼音n通过双拼en打出来
       - xform/\bng\b/eng/
       - xform/ńg|ňg|ǹg/eng/
